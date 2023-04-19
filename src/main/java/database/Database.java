@@ -14,9 +14,9 @@ public class Database {
             //load the MYSQL JDBC driver
             Class.forName("com.mysql.cj.jdbc.Driver");
             //Connect to database
-            String url = "jdbc:mysql://localhost:3306/databasesalon";
+            String url = "jdbc:mysql://localhost:3306/kattebase";
             String user = "root";
-            String password = "root";
+            String password = "trUvaj2wQw1";
             conn = DriverManager.getConnection(url,user,password);
             System.out.println("Connected to database");
         } catch (ClassNotFoundException e) {

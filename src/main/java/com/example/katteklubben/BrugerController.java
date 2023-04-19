@@ -1,6 +1,6 @@
 package com.example.katteklubben;
 
-import Database.Database;
+import database.Database;
 
 import javax.xml.crypto.Data;
 import java.sql.Connection;
@@ -12,14 +12,15 @@ public class BrugerController {
     private Database connector;
     private Connection connection;
 
-    public boolean opret_bruger(String bruger_navn, String bruger_email, String bruger_password) {
+    public boolean opret_bruger(String fnavn,String enavn, String email, String password) {
         try {
-            String sql = "INSERT INTO bruger (Bruger_navn, Bruger_email, Bruger_password) VALUES (?,?,?)";
+            String sql = "INSERT INTO medlem (fnavn, enavn, email, password) VALUES (?,?,?)";
             PreparedStatement statement = connection.prepareStatement(sql);
 
-            statement.setString(1, bruger_navn);
-            statement.setString(2,bruger_navn);
-            statement.setString(3,bruger_password);
+            statement.setString(1, fnavn);
+            statement.setString(2, enavn);
+            statement.setString(3, email);
+            statement.setString(4,password);
 
             int rowsInserted = statement.executeUpdate();
             if(rowsInserted > 0) {

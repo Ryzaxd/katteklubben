@@ -1,6 +1,7 @@
 package com.example.katteklubben;
 
-import Database.Database;
+
+import database.Database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,12 +18,12 @@ public class loginController {
         connection = connector.getConnection();
     }
 
-    public void check_login(String bruger_email, String password) {
+    public void check_login(String email, String password) {
         try {
-            String sql = "SELECT bruger_email FROM bruger WHERE bruger_email = ?, AND password = ?";
+            String sql = "SELECT email FROM medlem WHERE email = ?, AND password = ?";
             PreparedStatement statement = connector.getConnection().prepareStatement(sql);
 
-            statement.setString(1, bruger_email);
+            statement.setString(1, email);
             statement.setString(2, password);
 
             ResultSet rs = statement.executeQuery();
