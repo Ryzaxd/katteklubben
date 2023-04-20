@@ -11,9 +11,9 @@ public class Database {
 
     public Database() {
         try {
-            //load the MYSQL JDBC driver
+
             Class.forName("com.mysql.cj.jdbc.Driver");
-            //Connect to database
+
             String url = "jdbc:mysql://localhost:3306/kattebase";
             String user = "root";
             String password = "trUvaj2wQw1";
