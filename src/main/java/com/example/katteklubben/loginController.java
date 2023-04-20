@@ -27,13 +27,13 @@ public class loginController {
             statement.setString(2, password);
 
             ResultSet rs = statement.executeQuery();
-            //Checks if rs returns
+
             if(rs.next()) {
                 System.out.println("Login successful!");
             } else {
                 System.out.println("Login failed.");
             }
-            //Close connection
+
             connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
