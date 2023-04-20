@@ -20,7 +20,7 @@ public class loginController {
 
     public void check_login(String email, String password) {
         try {
-            String sql = "SELECT email FROM medlem WHERE email = ?, AND password = ?";
+            String sql = "SELECT email FROM medlem WHERE email = ? AND password = ?";
             PreparedStatement statement = connector.getConnection().prepareStatement(sql);
 
             statement.setString(1, email);
