@@ -1,23 +1,49 @@
 <!DOCTYPE html>
+
 <html>
-    <form action="action_page.php" method="post">
 
+<!-- Head -->
 
-  <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+<head>
+    
+    <title>Katte Hjemmeside</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet index.css">
+    <meta charset="UTF-8">
+    <meta name="description" content="skallet kat">
+    <meta name="keywords" content="cat">
+    <link href="https://fonts.googleapis.com/css?family=Alkatra&display=swap" rel="stylesheet">
+    <meta name="author" content="DAT 123">
+    <meta name="viewport" content="width=divise-with, initial-scale=1.0">
+</head>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+<!-- Body -->
 
-    <button type="submit">Login</button>
+<body>
+    
+    <header>
+        <h1> Velkommen til hellig Birma.dk</h1>
+    </header>
 
-  </div>
+    <div class="login-box">
+        
+        <h2>Login</h2>
 
-  <div class="container" style="background-color:#f1f1f1">
+        <form th:action="@{/login}" method="post">
+            <div class="user-box">
+                <input type="email" name="email" required="">
+                <label>Email</label>
+            </div>
 
+            <div class="user-box">
+                <input type="password" name="password" required="">
+                <label>Password</label>
+            </div>
+                <input type="submit" value="Login">
+                <a href="../../../../../../Kattehjemmeside/Opret%20bruger.html"><input type="button" value="Opret bruger"></a>
+        </form>
 
-  </div>
-</form>
+    </div>
+
+</body>
 
 </html>

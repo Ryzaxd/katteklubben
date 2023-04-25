@@ -1,0 +1,103 @@
+html{
+    
+}
+
+header{
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Alkatra', sans-serif;
+    background-color: rgb(166, 185, 162);
+}
+body {
+    
+    margin: 0;
+    padding: 0;
+    font-family: 'Alkatra', sans-serif;
+}
+body{
+    background-image: url("Den_Hellige_Birma.jpg");
+}
+
+.login-box {
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login-box h2 {
+    background-color: rgb(166, 185, 162);
+    width: 100px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.login-box form {
+    padding: 20px;
+    background: #333;
+}
+
+.user-box {
+    position: relative;
+}
+
+.user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.user-box label {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+
+
+input[type="submit"] {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #03a9f4;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-family: 'Alkatra', sans-serif;
+}
+
+input[type="submit"]:hover {
+    background: #fff;
+    color: #333;
+}
+input[type="button"]{
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #03a9f4;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-family: 'Alkatra', sans-serif;
+}
+
+
