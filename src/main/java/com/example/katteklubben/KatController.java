@@ -41,4 +41,30 @@ public class KatController {
         return katList;
     }
 
+    public ArrayList<Kæledyr> getAllCatsForUser(int mid) {
+        ArrayList<Kæledyr> katte_list = new ArrayList<>();
+
+        try {
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM kæledyr WHERE kid = ?");
+            stmt.setInt(1, mid);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while(rs.next()) {
+                Kæledyr kat = new Kæledyr();
+                kat.setKid(rs.getInt("kid"));
+                kat.setKnavn(rs.getString("knavn"));
+                kat.setKoen(rs.getString("koen"));
+                kat.setBilledePath(rs.getString("katbilledepath"));
+
+                katte_list.add(kat);
+            }
+
+            rs.close();
+            stmt.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return katte_list;
+    }
 }

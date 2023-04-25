@@ -6,13 +6,15 @@ public class Kæledyr {
     private String knavn;
     private String kalder;
     private String koen;
+    private String billedePath;
 
 
-    public Kæledyr(int kid, String knavn, String kalder, String koen) {
+    public Kæledyr(int kid, String knavn, String kalder, String koen, String billedePath){
         this.kid = kid;
         this.knavn = knavn;
         this.kalder = kalder;
         this.koen = koen;
+        this.billedePath = billedePath;
     }
 
     public Kæledyr() {
@@ -51,5 +53,15 @@ public class Kæledyr {
         this.kid = kid;
     }
 
+    public int getKid() {
+        return kid;
+    }
 
+    public String getBilledePath() {
+        return billedePath;
+    }
+
+    public void setBilledePath(String billedePath) {
+        this.billedePath = billedePath;
+    }
 }

@@ -6,12 +6,14 @@ public class Medlem {
     private String fnavn;
     private String enavn;
     private String email;
+    private String password;
 
-    public Medlem(int mid, String fnavn, String enavn, String email) {
+    public Medlem(int mid, String fnavn, String enavn, String email, String password) {
         this.mid = mid;
         this.fnavn = fnavn;
         this.enavn = enavn;
         this.email = email;
+        this.password = password;
     }
 
     public Medlem() {
@@ -50,4 +52,11 @@ public class Medlem {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
