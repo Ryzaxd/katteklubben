@@ -1,4 +1,4 @@
-package com.example.katteklubben;
+package UIController;
 
 import entiteter.Kæledyr;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -14,7 +14,9 @@ import java.util.ArrayList;
 @WebServlet("/catImage")
 public class KatBilledeServlet extends HttpServlet {
 
-    private KatController katController = new KatController(catRepository);
+
+    private UIController.kæledyrRepository kæledyrRepository;
+    private KatController katController = new KatController(kæledyrRepository);
     private Medlem medlem = new Medlem();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

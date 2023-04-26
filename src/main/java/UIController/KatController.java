@@ -1,6 +1,5 @@
 package UIController;
 
-import com.example.katteklubben.kæledyrRepository;
 import database.Database;
 import entiteter.Kæledyr;
 import org.springframework.stereotype.Controller;
