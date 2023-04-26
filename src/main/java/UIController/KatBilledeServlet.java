@@ -1,13 +1,12 @@
-package com.example.katteklubben;
+package UIController;
 
-import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import klasser.Kæledyr;
-import klasser.Medlem;
+import entiteter.Kæledyr;
+import entiteter.Medlem;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -15,7 +14,7 @@ import java.util.ArrayList;
 @WebServlet("/catImage")
 public class KatBilledeServlet extends HttpServlet {
 
-    private KatController katController = new KatController();
+    private KatController katController = new KatController(catRepository);
     private Medlem medlem = new Medlem();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

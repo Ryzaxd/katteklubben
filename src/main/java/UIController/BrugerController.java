@@ -1,9 +1,8 @@
-package com.example.katteklubben;
+package UIController;
 
 import database.Database;
-import klasser.Medlem;
+import entiteter.Medlem;
 
-import javax.xml.crypto.Data;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

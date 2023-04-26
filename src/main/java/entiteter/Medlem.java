@@ -1,7 +1,14 @@
-package klasser;
+package entiteter;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Medlem {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int mid;
     private String fnavn;
     private String enavn;
@@ -58,5 +65,16 @@ public class Medlem {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "Medlem{" +
+                "mid=" + mid +
+                ", fnavn='" + fnavn + '\'' +
+                ", enavn='" + enavn + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

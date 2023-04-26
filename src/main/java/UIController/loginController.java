@@ -1,4 +1,4 @@
-package com.example.katteklubben;
+package UIController;
 
 
 import database.Database;

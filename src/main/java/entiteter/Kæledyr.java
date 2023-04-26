@@ -1,7 +1,13 @@
-package klasser;
+package entiteter;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+@Entity
 public class Kæledyr {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int kid;
     private String knavn;
     private String kalder;
@@ -63,5 +69,16 @@ public class Kæledyr {
 
     public void setBilledePath(String billedePath) {
         this.billedePath = billedePath;
+    }
+
+    @Override
+    public String toString() {
+        return "Kæledyr{" +
+                "kid=" + kid +
+                ", knavn='" + knavn + '\'' +
+                ", kalder='" + kalder + '\'' +
+                ", koen='" + koen + '\'' +
+                ", billedePath='" + billedePath + '\'' +
+                '}';
     }
 }

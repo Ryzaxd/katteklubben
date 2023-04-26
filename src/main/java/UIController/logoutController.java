@@ -1,4 +1,4 @@
-package com.example.katteklubben;
+package UIController;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;

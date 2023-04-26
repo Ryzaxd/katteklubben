@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Tilføj dit kæledyr</title>
+</head>
+<body>
+<div>
+    <h1>Tilføj dit kæledyr</h1>
+    <form action="#" th:action="@{/add-kæledyr}" th:object="${kæledyr}" method="post">
+        <div>
+            <label for="knavn">Navn:</label>
+            <input type="text" id="knavn" th:field="*{knavn}" required>
+        </div>
+        <div>
+            <label for="kalder">Alder:</label>
+            <input type="number" id="kalder" th:field="*{kalder}" required>
+        </div>
+        <div>
+            <label for="koen">Køn:</label>
+            <input type="text" id="koen" th:field="*{koen}" required>
+        </div>
+        <button type="submit">Tilføj kæledyr</button>
+    </form>
+</div>
+</body>
+</html>
