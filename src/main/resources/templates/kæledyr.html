@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8"/>
@@ -24,5 +24,8 @@
     </tbody>
   </table>
 </div>
+  <form th:action="@{/add-cat}" method="get">
+  <input type="submit" value="tilføj-kat">
+</form>
 </body>
 </html>
