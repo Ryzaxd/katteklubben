@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Hellig Birma Hjemmeside</title>
+  <link rel="stylesheet" type="text/css" href="stylesheetindex.css">
+  <meta charset="UTF-8">
+  <meta name="description" content="Hellig Birma">
+  <meta name="keywords" content="kat">
+  <link href="https://fonts.googleapis.com/css?family=Alkatra&display=swap" rel="stylesheet">
+  <meta name="author" content="DAT 123">
+  <meta name="viewport" content="width=divise-with, initial-scale=1.0">
+</head>
+<body>
+<div>
+  <h1>Liste over katte</h1>
+  <table>
+    <thead>
+    <tr>
+      <th>Navn</th>
+      <th>Alder</th>
+      <th>Køn</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="kat : ${kat}">
+      <td th:text="${kat.knavn}"></td>
+      <td th:text="${kat.kalder}"></td>
+      <td th:text="${kat.koen}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

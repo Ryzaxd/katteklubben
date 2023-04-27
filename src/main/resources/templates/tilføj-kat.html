@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Hellig Birma Hjemmeside</title>
+  <link rel="stylesheet" type="text/css" href="stylesheetindex.css">
+  <meta charset="UTF-8">
+  <meta name="description" content="Hellig Birma">
+  <meta name="keywords" content="kat">
+  <link href="https://fonts.googleapis.com/css?family=Alkatra&display=swap" rel="stylesheet">
+  <meta name="author" content="DAT 123">
+  <meta name="viewport" content="width=divise-with, initial-scale=1.0">
+</head>
+<body>
+<div>
+  <h1>Tilføj din kat</h1>
+  <form action="#" th:action="@{/tilføj-kat.html}" th:object="${kat}" method="post">
+    <div>
+      <label for="knavn">Navn:</label>
+      <input type="text" id="knavn" th:field="*{knavn}" required>
+    </div>
+    <div>
+      <label for="kalder">Alder:</label>
+      <input type="number" id="kalder" th:field="*{kalder}" required>
+    </div>
+    <div>
+      <label for="koen">Køn:</label>
+      <input type="text" id="koen" th:field="*{koen}" required>
+    </div>
+    <button type="submit">Tilføj kat</button>
+  </form>
+</div>
+</body>
+</html>

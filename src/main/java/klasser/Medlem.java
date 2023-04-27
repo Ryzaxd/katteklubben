@@ -1,7 +1,14 @@
 package klasser;
 
-public class Medlem {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+@Entity
+public class Medlem {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int mid;
     private String fnavn;
     private String enavn;

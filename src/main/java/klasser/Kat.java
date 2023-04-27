@@ -1,7 +1,16 @@
 package klasser;
 
-public class Kæledyr {
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+public class Kat {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int kid;
     private String knavn;
     private String kalder;
@@ -9,7 +18,7 @@ public class Kæledyr {
     private String billedePath;
 
 
-    public Kæledyr(int kid, String knavn, String kalder, String koen, String billedePath){
+    public Kat(int kid, String knavn, String kalder, String koen, String billedePath){
         this.kid = kid;
         this.knavn = knavn;
         this.kalder = kalder;
@@ -17,7 +26,7 @@ public class Kæledyr {
         this.billedePath = billedePath;
     }
 
-    public Kæledyr() {
+    public Kat() {
 
     }
 

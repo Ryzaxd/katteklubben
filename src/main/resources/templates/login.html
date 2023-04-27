@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Hellig Birma Hjemmeside</title>
+  <link rel="stylesheet" type="text/css" href="stylesheetindex.css">
+  <meta charset="UTF-8">
+  <meta name="description" content="Hellig Birma">
+  <meta name="keywords" content="kat">
+  <link href="https://fonts.googleapis.com/css?family=Alkatra&display=swap" rel="stylesheet">
+  <meta name="author" content="DAT 123">
+  <meta name="viewport" content="width=divise-with, initial-scale=1.0">
+</head>
+<body>
+<div>
+  <h1>Velkommen til hellig Birma.dk</h1>
+  <form action="#" th:action="@{/login}" th:object="${medlem}" method="post">
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" th:field="*{email}" required>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" th:field="*{password}" required>
+    </div>
+    <button type="submit">Login</button>
+  </form>
+  <a href="/register">Opret Bruger</a>
+</div>
+</body>
+</html>

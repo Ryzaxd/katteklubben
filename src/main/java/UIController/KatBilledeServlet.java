@@ -5,8 +5,10 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import klasser.Kæledyr;
+import klasser.Kat;
 import klasser.Medlem;
+import repository.KatRepository;
+import repository.MedlemRepository;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -14,9 +16,9 @@ import java.util.ArrayList;
 @WebServlet("/catImage")
 public class KatBilledeServlet extends HttpServlet {
 
-
-    private repository.kæledyrRepository kæledyrRepository;
-    private KatController katController = new KatController(kæledyrRepository);
+    private repository.KatRepository KatRepository;
+    private repository.MedlemRepository MedlemRepository;
+    private KatController katController = new KatController(KatRepository, MedlemRepository);
     private Medlem medlem = new Medlem();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,11 +26,11 @@ public class KatBilledeServlet extends HttpServlet {
         int kid = Integer.parseInt(request.getParameter("kid"));
         int logged_medlem_id = medlem.getMid();
 
-        ArrayList<Kæledyr> katte_liste = katController.getAllCatsForUser(logged_medlem_id);
+        ArrayList<Kat> katte_liste = katController.getAllCatsForUser(logged_medlem_id);
 
 
         String filePath = null;
-        for(Kæledyr kat : katte_liste) {
+        for(Kat kat : katte_liste) {
             if(kat.getKid() == kid) {
                 filePath = kat.getBilledePath();
                 break;

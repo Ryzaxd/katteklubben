@@ -5,4 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MedlemRepository extends JpaRepository<Medlem, Long> {
 
-    Medlem save(Medlem medlem);}
+    Medlem findByEmail(String email);
+    Medlem findByEmailAndPassword(String email, String password);
+}

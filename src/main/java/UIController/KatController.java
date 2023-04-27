@@ -1,103 +1,64 @@
 package UIController;
 
-import database.Database;
-import klasser.Kæledyr;
+import klasser.Kat;
+import klasser.Medlem;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import repository.kæledyrRepository;
+import repository.KatRepository;
+import repository.MedlemRepository;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 @Controller
 public class KatController {
 
-        private final repository.kæledyrRepository kæledyrRepository;
+    private final KatRepository katRepository;
+    private final MedlemRepository medlemRepository;
 
-        public KatController(kæledyrRepository kæledyrRepository) {
-            this.kæledyrRepository = kæledyrRepository;
-        }
-
-
-    @GetMapping("/add-cat")
-        public String showAddCatForm(Model model) {
-            model.addAttribute("kæledyr", new Kæledyr());
-            return "tilføj-kæledyr";
-        }
-
-        @PostMapping("/tilføj-kæledyr")
-        public String addCat(Kæledyr kæledyr) {
-            System.out.println("Navn: " + kæledyr.getKnavn() + ", Alder: " + kæledyr.getKalder() + ", Køn: " + kæledyr.getKoen());
-            kæledyrRepository.save(kæledyr);
-            return "redirect:/kæledyr";
-        }
-
-
-        @GetMapping("/kæledyr")
-        public String showCats(Model model) {
-            model.addAttribute("kæledyr", kæledyrRepository.findAll());
-            return "kæledyr";
-        }
-
-    private Database connector;
-    private Connection connection;
-
-    public ArrayList<Kæledyr> slå_alle_medlemmer_og_katte_op() {
-        ArrayList<Kæledyr> katList = new ArrayList<>();
-        try {
-            String sql = "SELECT medlem.mid, medlem.fnavn, medlem.enavn, medlem.email " +
-                    ",kæledyr.kid, kæledyr.knavn, kæledyr.koen, kæledyr.kalder " +
-                    "FROM medlem INNER JOIN kæledyr ON medlem.mid = kæledyr.kid";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            ResultSet rs = statement.executeQuery();
-
-            while(rs.next()) {
-                Kæledyr kat = new Kæledyr();
-                kat.setKid(rs.getInt("kid"));
-                kat.setKnavn(rs.getString("knavn"));
-                kat.setKoen(rs.getString("koen"));
-                kat.setKalder(rs.getString("kalder"));
-
-                katList.add(kat);
-            }
-
-            rs.close();
-            statement.close();
-        } catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-        return katList;
+    public KatController(KatRepository katRepository, MedlemRepository medlemRepository) {
+        this.katRepository = katRepository;
+        this.medlemRepository = medlemRepository;
     }
 
-    public ArrayList<Kæledyr> getAllCatsForUser(int mid) {
-        ArrayList<Kæledyr> katte_list = new ArrayList<>();
+    @GetMapping("/")
+    public String showLoginForm(Model model) {
+        model.addAttribute("medlem", new Medlem());
+        return "login";
+    }
 
-        try {
-            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM kæledyr WHERE kid = ?");
-            stmt.setInt(1, mid);
-
-            ResultSet rs = stmt.executeQuery();
-
-            while(rs.next()) {
-                Kæledyr kat = new Kæledyr();
-                kat.setKid(rs.getInt("kid"));
-                kat.setKnavn(rs.getString("knavn"));
-                kat.setKoen(rs.getString("koen"));
-                kat.setBilledePath(rs.getString("katbilledepath"));
-
-                katte_list.add(kat);
-            }
-
-            rs.close();
-            stmt.close();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+    @PostMapping("/login")
+    public String login(@ModelAttribute Medlem medlem) {
+        Medlem foundMedlem = medlemRepository.findByEmail(medlem.getEmail());
+        if (foundMedlem != null && foundMedlem.getPassword().equals(medlem.getPassword())) {
+            return "redirect:/tilføj-kat";
+        } else {
+            return "login-error";
         }
-        return katte_list;
+    }
+
+    @GetMapping("/tilføj-kat")
+    public String showAddCatForm(Model model) {
+        model.addAttribute("kat", new Kat());
+        return "tilføj-kat";
+    }
+
+    @PostMapping("/tilføj-kat")
+    public String addCat(Kat kat) {
+        System.out.println("Navn: " + kat.getKnavn() + ", Alder: " + kat.getKalder() + ", Køn: " + kat.getKoen());
+        katRepository.save(kat);
+        return "redirect:/kat";
+    }
+
+    @GetMapping("/kat")
+    public String showCats(Model model) {
+        model.addAttribute("kat", katRepository.findAll());
+        return "kat";
+    }
+
+    public ArrayList<Kat> getAllCatsForUser(int logged_medlem_id) {
+        return getAllCatsForUser(logged_medlem_id);
     }
 }
