@@ -1,11 +1,12 @@
 package UIController;
 
 import database.Database;
-import entiteter.Kæledyr;
+import klasser.Kæledyr;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import repository.kæledyrRepository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 @Controller
 public class KatController {
 
-        private final kæledyrRepository kæledyrRepository;
+        private final repository.kæledyrRepository kæledyrRepository;
 
         public KatController(kæledyrRepository kæledyrRepository) {
             this.kæledyrRepository = kæledyrRepository;
